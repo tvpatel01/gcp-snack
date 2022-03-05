@@ -8,12 +8,10 @@ const { getFirestore, Timestamp } = require('firebase-admin/firestore');
 // Initialize and acquire environment vaiables
 dotenv.config();
 const port = process.env.PORT || 3000;
-const gcpkey = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
-// Initialize firebase
-// Load service account key, if running on remote machine
-if(gcpkey){
-    const key = require(gcpkey);
+// Initialize firebase. Load key, if running locally
+if(process.env.GOOGLE_APPLICATION_CREDENTIALS){
+    const key = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
     initializeApp({credential: cert(key)});
 }else{
     initializeApp();
