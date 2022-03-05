@@ -140,4 +140,5 @@ dist
 
 
 package-lock.json
-gcp-snack-d5d2415bc422.json
+gcp-*.json
+
